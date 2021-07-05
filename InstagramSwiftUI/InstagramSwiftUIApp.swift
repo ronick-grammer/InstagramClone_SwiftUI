@@ -20,7 +20,7 @@ struct InstagramSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            LoginView()
+            LoginView().environmentObject(AuthViewModel()) // AuthViewModel을 초기화해야 해야 사용가능
         }
     }
 }
