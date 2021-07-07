@@ -15,6 +15,8 @@ class AuthViewModel: ObservableObject {
     // 유저가 생성되면 유저 세션은 nil이 아니게 된다.
     @Published var userSession: FirebaseAuth.User?
     
+    static let shared = AuthViewModel()
+    
     init() {
         userSession = Auth.auth().currentUser
     }
@@ -23,12 +25,22 @@ class AuthViewModel: ObservableObject {
         print("Login")
     }
     
-    func register() {
-        print("Register")
+    func register(withEmail email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if let error = error { // 이메일 형식이 틀리거나 비밀번호 형식이 맞지 않으면 발생
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let user = result?.user else {return}
+            self.userSession = user
+            print("Successfully registered user...")
+        }
     }
     
-    func singout() {
-        print("Signout")
+    func signout() {
+        self.userSession = nil 
+        try? Auth.auth().signOut() // 파이어베이스에서 signout
     }
     
     func resetPassword() {
@@ -38,7 +50,4 @@ class AuthViewModel: ObservableObject {
     func fetchUser() {
         print("FetchUser")
     }
-   
-   
 }
-
