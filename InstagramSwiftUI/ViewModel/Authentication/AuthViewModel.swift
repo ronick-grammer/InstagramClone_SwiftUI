@@ -21,8 +21,16 @@ class AuthViewModel: ObservableObject {
         userSession = Auth.auth().currentUser
     }
     
-    func login() {
-        print("Login")
+    func login(withEmail email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEBUG: Login failed \(error.localizedDescription)")
+                return
+            }
+            
+            guard let user = result?.user else { return }
+            self.userSession = user
+        }
     }
     
     func register(withEmail email: String, password: String, image: UIImage?,
@@ -46,16 +54,17 @@ class AuthViewModel: ObservableObject {
                             "profileImageUrl": imageUrl,
                             "uid": user.uid]
                 
+                // 유저 데이터 저장
                 Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
                     print("Successfully uploaded user data...")
-                    self.userSession = user
+                    self.userSession = user // 세션 등록
                 }
             }
         }
     }
     
     func signout() {
-        self.userSession = nil 
+        self.userSession = nil  // 앱에서 로그아웃
         try? Auth.auth().signOut() // 파이어베이스에서 signout
     }
     

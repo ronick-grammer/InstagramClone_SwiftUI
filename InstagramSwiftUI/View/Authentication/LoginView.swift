@@ -55,11 +55,11 @@ struct LoginView: View {
                         })
                     }
                     // sign in
-                    Button(action: { viewModel.login() }, label: {
+                    Button(action: { viewModel.login(withEmail: email, password: password) }, label: {
                         Text("Sign In") 
                             .font(.headline)
                             .foregroundColor(.white)
-                            .frame(width: 360, height: 50)
+                            .frame(width: 330, height: 50)
                             .background(Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)))
                             .clipShape(Capsule())
                             //.cornerRadius(25) // height 를 반으로 나눈 값이면 Capsule 효과
