@@ -17,7 +17,8 @@ struct RegistrationView: View {
     @State var imagePickerPresented = false
     @Environment(\.presentationMode) var mode
     @EnvironmentObject var viewModel: AuthViewModel
-     
+    
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: .top, endPoint: .bottom)

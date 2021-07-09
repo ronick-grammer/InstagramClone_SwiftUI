@@ -19,6 +19,7 @@ class AuthViewModel: ObservableObject {
     
     init() {
         userSession = Auth.auth().currentUser
+        fetchUser()
     }
     
     func login(withEmail email: String, password: String) {
@@ -55,7 +56,7 @@ class AuthViewModel: ObservableObject {
                             "uid": user.uid]
                 
                 // 유저 데이터 저장
-                Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+                COLLECTION_USERS.document(user.uid).setData(data) { _ in
                     print("Successfully uploaded user data...")
                     self.userSession = user // 세션 등록
                 }
@@ -73,6 +74,11 @@ class AuthViewModel: ObservableObject {
     }
     
     func fetchUser() {
-        print("FetchUser")
+        guard let uid = userSession?.uid else { return }
+        COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
+            // json 데이터를 User 클래스에 매핑
+            guard let user = try? snapshot?.data(as: User.self) else { return }
+            print("DEBUG: User is \(user)")
+        }
     }
 }

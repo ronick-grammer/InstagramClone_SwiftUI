@@ -8,7 +8,6 @@
 import UIKit
 import Firebase
 
-
 struct ImageUploader {
     // 이미지 업로드가 끝나면(completion) 이미지 url 을 반환한다.
     // Swift UI Image는 JPEG 가 안되므로 UIImage로 받아야 한다.
