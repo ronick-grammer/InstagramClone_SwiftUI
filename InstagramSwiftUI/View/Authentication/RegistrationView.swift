@@ -16,6 +16,7 @@ struct RegistrationView: View {
     @State private var image: Image?
     @State var imagePickerPresented = false
     @Environment(\.presentationMode) var mode
+    @EnvironmentObject var viewModel: AuthViewModel
      
     var body: some View {
         ZStack {
@@ -53,14 +54,14 @@ struct RegistrationView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
                     
-                    CustomTextField(text: $email, placeholder: Text("username"), imgName: "person")
+                    CustomTextField(text: $username, placeholder: Text("username"), imgName: "person")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
                     
-                    CustomTextField(text: $email, placeholder: Text("Full Name"), imgName: "person")
+                    CustomTextField(text: $fullname, placeholder: Text("Full Name"), imgName: "person")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
@@ -75,7 +76,7 @@ struct RegistrationView: View {
                         .padding(.horizontal, 32)
                 }
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: { viewModel.register(withEmail: email, password: password, image: selectedImage, fullname: fullname, username: username) }, label: {
                     Text("Sign Up")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -93,7 +94,7 @@ struct RegistrationView: View {
                         Text("Already have an account?")
                             .font(.system(size: 14))
                         
-                        Text("Sing In")
+                        Text("Sign In")
                             .font(.system(size: 14, weight: .semibold))
                     }.foregroundColor(.white)
                 }).padding(.bottom, 16)

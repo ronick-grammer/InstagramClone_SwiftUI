@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainTabView: View {
+    
+    // @EnvironmentObject var viewModel ... 식으로 선언해서 signout을 할수도 있다
     var body: some View {
         NavigationView {
             TabView {
@@ -38,8 +40,17 @@ struct MainTabView: View {
             }
             .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading: logoutButton)
             .accentColor(.black)
         }
+    }
+    
+    var logoutButton: some View {
+        Button(action: {
+            AuthViewModel.shared.signout()
+        }, label: {
+            Text("Logout").foregroundColor(.black)
+        })
     }
 }
 
