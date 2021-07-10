@@ -13,12 +13,12 @@ struct UserListView: View {
     var body: some View {
         ScrollView {
             LazyVStack(spacing : 15) {
-                ForEach(viewModel.users) { _ in
-                    NavigationLink(
+                ForEach(viewModel.users) { user in
+                    NavigationLink (
                         // label을 클릭했을 때 destination view로 이동
                         destination: ProfileView(),
                         label: {
-                            UserCell()
+                            UserCell(user: user)
                                 .padding(.leading)
                         })
                 }
