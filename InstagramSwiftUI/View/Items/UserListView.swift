@@ -9,11 +9,16 @@ import SwiftUI
 
 struct UserListView: View {
     @ObservedObject var viewModel: SearchViewModel
+    @Binding var searchText: String
+    
+    var users: [User] {
+        return searchText.isEmpty ? viewModel.users : viewModel.filteredUsers(searchText)
+    }
     
     var body: some View {
         ScrollView {
             LazyVStack(spacing : 15) {
-                ForEach(viewModel.users) { user in
+                ForEach(users) { user in
                     NavigationLink (
                         // label을 클릭했을 때 destination view로 이동
                         destination: ProfileView(),
@@ -26,9 +31,10 @@ struct UserListView: View {
         }
     }
 }
-
+/*
 struct UserListView_Previews: PreviewProvider {
     static var previews: some View {
-        UserListView(viewModel: SearchViewModel())
+        UserListView(viewModel: SearchViewModel(), searchText: .constant(""))
     }
 }
+ */
