@@ -12,7 +12,6 @@ struct SearchView: View {
     @State var inSearchMode = false
     @ObservedObject var viewModel = SearchViewModel()
     
-    
     var body: some View {
         ScrollView {
             

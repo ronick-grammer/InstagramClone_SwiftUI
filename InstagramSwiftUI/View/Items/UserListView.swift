@@ -21,7 +21,7 @@ struct UserListView: View {
                 ForEach(users) { user in
                     NavigationLink (
                         // label을 클릭했을 때 destination view로 이동
-                        destination: ProfileView(),
+                        destination: ProfileView(user: user),
                         label: {
                             UserCell(user: user)
                                 .padding(.leading)
@@ -31,10 +31,10 @@ struct UserListView: View {
         }
     }
 }
-/*
+
 struct UserListView_Previews: PreviewProvider {
     static var previews: some View {
         UserListView(viewModel: SearchViewModel(), searchText: .constant(""))
     }
 }
- */
+ 

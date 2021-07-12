@@ -16,7 +16,9 @@ struct ContentView: View {
             if viewModel.userSession == nil {
                 LoginView()
             } else {// else show main interface
-                MainTabView()
+                if let user = viewModel.currentUser { // 로그인 했으면
+                    MainTabView(user: user)
+                }
             }
         }
     }

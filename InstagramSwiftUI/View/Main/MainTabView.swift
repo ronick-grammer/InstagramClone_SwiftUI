@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    
+    let user: User
     // @EnvironmentObject var viewModel ... 식으로 선언해서 signout을 할수도 있다
     var body: some View {
         NavigationView {
@@ -33,7 +33,7 @@ struct MainTabView: View {
                         Image(systemName: "heart")
                     }
                 
-                ProfileView()
+                ProfileView(user: user)
                     .tabItem {
                         Image(systemName: "person").accentColor(.red)
                     }
@@ -54,8 +54,10 @@ struct MainTabView: View {
     }
 }
 
+/*
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
        MainTabView()
     }
 }
+*/
