@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ProfileActionButtonView: View {
-    @ObservedObject var viewModel: ProfileViewModel// 로그인 유저 본인이라면
-    var isFollowed = false
+    @ObservedObject var viewModel: ProfileViewModel
+    var isFollowed: Bool { return viewModel.user.isFollowed ?? false }
     
     var body: some View {
-        if viewModel.user.isCurrentUser {
+        if viewModel.user.isCurrentUser { // 로그인 유저 본인이라면
             Button(action: {}, label: {
                 Text("Edit Profile")
                     .font(.system(size: 14, weight: .semibold))

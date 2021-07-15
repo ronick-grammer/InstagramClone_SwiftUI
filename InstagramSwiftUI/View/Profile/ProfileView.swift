@@ -21,7 +21,6 @@ struct ProfileView: View {
             VStack(spacing: 32) {
                 ProfileHeaderView(viewModel: viewModel)
                 
-                
                 PostGridView()
             }.padding(.top)
         }
