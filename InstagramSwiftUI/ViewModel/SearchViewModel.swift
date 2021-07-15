@@ -22,6 +22,7 @@ class SearchViewModel: ObservableObject {
             documents.forEach { snapshot in
                 // user의 json 정보를 User 객체로 매핑
                 guard let user = try? snapshot.data(as: User.self) else { return }
+                
                 self.users.append(user)
             }
             /*
