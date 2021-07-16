@@ -48,24 +48,39 @@ struct UploadPostView: View {
                         .frame(height: 200)
                 }.padding()
                 
-                Button(action: {
-                    if let image = selectedImage {
-                        viewModel.uploadPost(caption: captionText, image: image) { _ in
-                            captionText = ""
-                            postImage = nil
-                            tabIndex = 0 // 업로드를 마치면 feed 뷰로
-                            
-                            print("DEBUG: Uploaded post")
+                HStack(spacing: 16) {
+                    Button(action: {
+                        captionText = ""
+                        postImage = nil
+                        
+                    }, label: {
+                        Text("Cancel")
+                            .font(.system(size: 16, weight: .semibold))
+                            .frame(width: 172, height: 50)
+                            .background(Color.red)
+                            .cornerRadius(5)
+                            .foregroundColor(.white)
+                    })
+                    
+                    Button(action: {
+                        if let image = selectedImage {
+                            viewModel.uploadPost(caption: captionText, image: image) { _ in
+                                captionText = ""
+                                postImage = nil
+                                tabIndex = 0 // 업로드를 마치면 feed 뷰로
+                                
+                                print("DEBUG: Uploaded post")
+                            }
                         }
-                    }
-                }, label: {
-                    Text("Share")
-                        .font(.system(size: 16, weight: .semibold))
-                        .frame(width: 360, height: 50)
-                        .background(Color.blue)
-                        .cornerRadius(5)
-                        .foregroundColor(.white)
-                }).padding()
+                    }, label: {
+                        Text("Share")
+                            .font(.system(size: 16, weight: .semibold))
+                            .frame(width: 172, height: 50)
+                            .background(Color.blue)
+                            .cornerRadius(5)
+                            .foregroundColor(.white)
+                    })
+                }.padding()
             }
             
             Spacer()
