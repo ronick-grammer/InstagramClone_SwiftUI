@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @State var selectedIndex = 0 // 처음에는 feed 뷰
     
     var body: some View {
         Group { // 로그인 뷰와 MainTabView는 완전히 다른 독립된 뷰이기 때문에 ZStack을 사용하는 것은 좋지 않다.
@@ -17,7 +18,7 @@ struct ContentView: View {
                 LoginView()
             } else {// else show main interface
                 if let user = viewModel.currentUser { // 로그인 했으면
-                    MainTabView(user: user)
+                    MainTabView(user: user, selectedIndex: $selectedIndex)
                 }
             }
         }

@@ -12,6 +12,8 @@ struct UploadPostView: View {
     @State var postImage: Image? // Swift UI 이미지
     @State var captionText = ""
     @State var imagePickerPresented = false
+    @Binding var tabIndex: Int
+    @ObservedObject var viewModel =  UploadPostViewModel()
     
     var body: some View {
         VStack {
@@ -42,7 +44,17 @@ struct UploadPostView: View {
                     TextField("Enter your caption..", text: $captionText)
                 }
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    if let image = selectedImage {
+                        viewModel.uploadPost(caption: captionText, image: image) { _ in
+                            captionText = ""
+                            postImage = nil
+                            tabIndex = 0 // 업로드를 마치면 feed 뷰로
+                            
+                            print("DEBUG: Uploaded post")
+                        }
+                    }
+                }, label: {
                     Text("Share")
                         .font(.system(size: 16, weight: .semibold))
                         .frame(width: 360, height: 50)
@@ -64,8 +76,10 @@ extension UploadPostView {
     }
 }
 
+/*
 struct UploadPostView_Previews: PreviewProvider {
     static var previews: some View {
             UploadPostView()
     }
 }
+*/

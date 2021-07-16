@@ -41,7 +41,8 @@ class AuthViewModel: ObservableObject {
         
         guard let image = image else { return } // 이미지 업로드 전에 이미지가 존재하는지 확인
         
-        ImageUploader.uploadImage(image: image) { imageUrl in
+        // 이미지 업로드하기
+        ImageUploader.uploadImage(image: image, type: UploadType.profile) { imageUrl in
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 if let error = error { // 이메일 형식이 틀리거나 비밀번호 형식이 맞지 않으면 발생
                     print(error.localizedDescription)

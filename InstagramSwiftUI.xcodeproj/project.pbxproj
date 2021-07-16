@@ -43,6 +43,7 @@
 		D4C636E62698660300D38149 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C636E52698660300D38149 /* SearchViewModel.swift */; };
 		D4DA05092695D6CA006B48F1 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA05082695D6CA006B48F1 /* ImageUploader.swift */; };
 		D4DAA2542688B1050045E907 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DAA2532688B1050045E907 /* NotificationCell.swift */; };
+		D4DE251326A15C76005C4D9D /* UploadViewPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DE251226A15C76005C4D9D /* UploadViewPostModel.swift */; };
 		D4E87AD1268B53FB00425669 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87AD0268B53FB00425669 /* LoginView.swift */; };
 		D4E87AD3268B540D00425669 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87AD2268B540D00425669 /* RegistrationView.swift */; };
 		D4E87AD5268B541C00425669 /* RestPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87AD4268B541C00425669 /* RestPasswordView.swift */; };
@@ -83,6 +84,7 @@
 		D4C636E52698660300D38149 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		D4DA05082695D6CA006B48F1 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		D4DAA2532688B1050045E907 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		D4DE251226A15C76005C4D9D /* UploadViewPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewPostModel.swift; sourceTree = "<group>"; };
 		D4E87AD0268B53FB00425669 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D4E87AD2268B540D00425669 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		D4E87AD4268B541C00425669 /* RestPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPasswordView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				D49E22CA2680C5D3006C932D /* Notification */,
 				D49E22C92680C5CC006C932D /* Feed */,
 				D4C636E52698660300D38149 /* SearchViewModel.swift */,
+				D4DE251226A15C76005C4D9D /* UploadViewPostModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				D49E22A92680C31E006C932D /* InstagramSwiftUIApp.swift in Sources */,
 				D49E22D82680C818006C932D /* UploadPostView.swift in Sources */,
 				D43BB8322689FDCD00B76AE0 /* ImagePicker.swift in Sources */,
+				D4DE251326A15C76005C4D9D /* UploadViewPostModel.swift in Sources */,
 				D43BB82C2689B94C00B76AE0 /* ProfileHeaderView.swift in Sources */,
 				D49E22D62680C80E006C932D /* ProfileView.swift in Sources */,
 				D4A9293126A00B63009D2E4F /* UserService.swift in Sources */,
