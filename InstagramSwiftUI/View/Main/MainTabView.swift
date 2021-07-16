@@ -14,6 +14,7 @@ struct MainTabView: View {
     
     var body: some View {
         NavigationView {
+            // selection과 각 뷰의 tag 인자 값과 일치하는 뷰를 보여준다.
             TabView(selection: $selectedIndex) {
                 FeedView()
                     .onTapGesture {
@@ -21,7 +22,7 @@ struct MainTabView: View {
                     }
                     .tabItem {
                         Image(systemName: "house")
-                    } .tag(0) // selectedIndex 와 매칭 시킨다
+                    } .tag(0) // selectedIndex의 값과 매칭 시킨다
                 
                 SearchView()
                     .onTapGesture {

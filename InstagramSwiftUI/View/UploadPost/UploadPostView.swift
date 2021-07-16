@@ -41,8 +41,12 @@ struct UploadPostView: View {
                         .frame(width: 96, height: 96)
                         .clipped()
                     
-                    TextField("Enter your caption..", text: $captionText)
-                }
+                    //TextField("Enter your caption..", text: $captionText)
+                    // SwiftUI 에서는 특정 박스의 크기를 넘어가는 문자열을 다음칸으로 넘어가게 하지 않으므로
+                    // 따로 만들어줘야 한다.
+                    TextArea(text: $captionText, placeholder: "Enter your caption..")
+                        .frame(height: 200)
+                }.padding()
                 
                 Button(action: {
                     if let image = selectedImage {
