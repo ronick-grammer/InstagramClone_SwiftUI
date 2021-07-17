@@ -10,8 +10,7 @@ import SwiftUI
 struct PostGridView: View {
     private let items = [GridItem(), GridItem(), GridItem()]
     private let width = UIScreen.main.bounds.width / 3
-    // 도데체 뭐야
-    //....
+    
     var body: some View {
         LazyVGrid(columns: items, spacing: 3, content: {
             

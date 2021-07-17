@@ -14,11 +14,13 @@ import Firebase
 class AuthViewModel: ObservableObject {
     // 유저가 생성되면 유저 세션은 nil이 아니게 된다.
     @Published var userSession: FirebaseAuth.User?
+    @Published var currentUser: User?
     
     static let shared = AuthViewModel()
     
     init() {
         userSession = Auth.auth().currentUser
+        fetchUser()
     }
     
     func login(withEmail email: String, password: String) {
@@ -30,6 +32,7 @@ class AuthViewModel: ObservableObject {
             
             guard let user = result?.user else { return }
             self.userSession = user
+            self.fetchUser() // 로그인 후 현재 로그인 유저를 갱신해야 한다.
         }
     }
     
@@ -38,7 +41,8 @@ class AuthViewModel: ObservableObject {
         
         guard let image = image else { return } // 이미지 업로드 전에 이미지가 존재하는지 확인
         
-        ImageUploader.uploadImage(image: image) { imageUrl in
+        // 이미지 업로드하기
+        ImageUploader.uploadImage(image: image, type: UploadType.profile) { imageUrl in
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 if let error = error { // 이메일 형식이 틀리거나 비밀번호 형식이 맞지 않으면 발생
                     print(error.localizedDescription)
@@ -55,9 +59,10 @@ class AuthViewModel: ObservableObject {
                             "uid": user.uid]
                 
                 // 유저 데이터 저장
-                Firestore.firestore().collection("users").document(user.uid).setData(data) { _ in
+                COLLECTION_USERS.document(user.uid).setData(data) { _ in
                     print("Successfully uploaded user data...")
                     self.userSession = user // 세션 등록
+                    self.fetchUser() // 회원가입후 자동 로그인 되면 현재 유저를 갱신한다
                 }
             }
         }
@@ -73,6 +78,12 @@ class AuthViewModel: ObservableObject {
     }
     
     func fetchUser() {
-        print("FetchUser")
+        guard let uid = userSession?.uid else { return }
+        COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
+            // json 데이터를 User 클래스에 매핑
+            guard let user = try? snapshot?.data(as: User.self) else { return }
+            //print("DEBUG: User is \(user)")
+            self.currentUser = user
+        }
     }
 }
