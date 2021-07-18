@@ -21,20 +21,8 @@ class FeedViewModel: ObservableObject {
             guard let documents = snapshot?.documents else { return }
             
             self.posts = documents.compactMap({ try? $0.data(as: Post.self) })
-            /*
-            documents.forEach { snapshot in
-                guard let post = try? snapshot.data(as: Post.self) else {
-                    print("DEBUG: Failed to fetch..")
-                    return
-                }
-                
-                self.posts.append(post)
-                print("DEBUG: Fetched Post..")
-                print(post.id ?? "")
-            }
-             */
-            print("DEBUG: succeeded fetching")
-            print(self.posts.count)
+            
+            //print(self.posts.count)
         }
     }
 }

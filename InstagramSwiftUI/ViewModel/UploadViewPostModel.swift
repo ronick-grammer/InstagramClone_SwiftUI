@@ -19,7 +19,7 @@ class UploadPostViewModel: ObservableObject {
                         "imageUrl": imageUrl,
                         "ownerUid": user.id ?? "",
                         "ownerImageUrl": user.profileImageUrl,
-                        "onwerUsername": user.username] as [String: Any] // 잘못 되었단걸 알았을때는 이미 많은 것이 업로드 되었지..
+                        "onwerUsername": user.username] as [String: Any] // 잘못 되었단걸 깨달았을때는 이미 많은 것이 업로드 되었지..feat.스펠링
             
             COLLECTION_POSTS.addDocument(data: data, completion: completion)
         }

@@ -22,7 +22,7 @@ struct SearchView: View {
                 if inSearchMode {
                     UserListView(viewModel: viewModel, searchText: $searchText)
                 } else {
-                    PostGridView()
+                    PostGridView(config: PostGridConfiguration.explore) // 모든 사진들 게시
                 }
             }
         }

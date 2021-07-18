@@ -36,7 +36,7 @@ struct ProfileHeaderView: View {
                 .font(.system(size: 15, weight: .semibold))
                 .padding([.leading, .top])
             
-            Text("Your Friendly Neighborhood")
+            Text(viewModel.user.username)
                 .font(.system(size: 15))
                 .padding(.leading)
                 .padding(.top, 1)
