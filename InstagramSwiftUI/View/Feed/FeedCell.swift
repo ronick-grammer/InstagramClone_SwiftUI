@@ -44,10 +44,11 @@ struct FeedCell: View {
                 Button(action: { // 좋아요를 이미 눌렀다면 취소시킴
                     didLike ? viewModel.unlike() : viewModel.like()
                 }, label: {
-                    Image(systemName: "heart")
+                    Image(systemName: didLike ? "heart.fill" : "heart")
                         .resizable()
                         .scaledToFill()
-                        .frame(width:20, height: 20)
+                        .foregroundColor(didLike ? .red : .black)
+                        .frame(width:20, height: 20) 
                         .font(.system(size: 20))
                         .padding(4)
                 })
@@ -73,7 +74,7 @@ struct FeedCell: View {
             .padding(.leading, 4)
             .foregroundColor(.black)
             
-            Text("\(viewModel.post.likes) likes")
+            Text((viewModel.post.likes > 1) ? "\(viewModel.post.likes) likes" : "\(viewModel.post.likes) like" )
                 .font(.system(size: 14, weight: .semibold))
                 .padding(.leading, 8)
                 .padding(.bottom, 2)
