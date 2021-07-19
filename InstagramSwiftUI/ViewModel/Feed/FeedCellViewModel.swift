@@ -10,13 +10,20 @@ import SwiftUI
 class FeedCellViewModel: ObservableObject {
     @Published var post: Post
     
+    var likeString: String {
+        let label = (post.likes > 1) ? "likes" : "like"
+        return "\(post.likes) \(label)"
+    }
+    
     init(post: Post) {
         self.post = post
+        checkIfUserLikedPost()
     }
     
     func like() {
         guard let uid = AuthViewModel.shared.userSession?.uid else { return }
         guard let postId = post.id else { return }
+        
         COLLECTION_POSTS.document(postId ).collection("post-likes")
             .document(uid).setData([:]) { _ in
                 COLLECTION_USERS.document(uid).collection("user-likes")
@@ -30,8 +37,10 @@ class FeedCellViewModel: ObservableObject {
     }
     
     func unlike() {
+        guard post.likes > 0 else { return } // 음수 되는거 방지
         guard let uid = AuthViewModel.shared.userSession?.uid else { return }
         guard let postId = post.id else { return }
+        
         COLLECTION_POSTS.document(postId).collection("post-likes")
             .document(uid).delete { _ in
                 COLLECTION_USERS.document(uid).collection("user-likes")
@@ -45,6 +54,14 @@ class FeedCellViewModel: ObservableObject {
     }
     
     func checkIfUserLikedPost() {
+        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
+        guard let postId = post.id else { return }
+        
+        COLLECTION_POSTS.document(postId).collection("post-likes")
+            .document(uid).getDocument { snapshot, _ in
+                guard let didLiked = snapshot?.exists else { return }
+                self.post.didLike = didLiked
+            }
         
     }
 }

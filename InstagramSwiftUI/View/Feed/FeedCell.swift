@@ -74,7 +74,7 @@ struct FeedCell: View {
             .padding(.leading, 4)
             .foregroundColor(.black)
             
-            Text((viewModel.post.likes > 1) ? "\(viewModel.post.likes) likes" : "\(viewModel.post.likes) like" )
+            Text(viewModel.likeString)
                 .font(.system(size: 14, weight: .semibold))
                 .padding(.leading, 8)
                 .padding(.bottom, 2)
