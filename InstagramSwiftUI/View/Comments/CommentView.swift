@@ -9,6 +9,11 @@ import SwiftUI
 
 struct CommentView: View {
     @State var commentText = ""
+    @ObservedObject var viewModel: CommentViewModel
+    
+    init(post: Post) {
+        self.viewModel = CommentViewModel(post: post)
+    }
     
     var body: some View {
         VStack {
@@ -28,12 +33,7 @@ struct CommentView: View {
     }
     
     func uploadComment() {
-        
-    }
-}
-
-struct CommentView_Previews: PreviewProvider {
-    static var previews: some View {
-        CommentView()
+        viewModel.uploadComment(commentText: commentText)
+        commentText = "" // 댓글 업로드 후 초기화
     }
 }
