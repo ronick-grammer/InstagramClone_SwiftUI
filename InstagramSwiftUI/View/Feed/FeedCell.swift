@@ -53,14 +53,16 @@ struct FeedCell: View {
                         .padding(4)
                 })
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Image(systemName: "bubble.right")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width:20, height: 20)
-                        .font(.system(size: 20))
-                        .padding(4)
-                })
+                NavigationLink(
+                    destination: CommentView(),
+                    label: {
+                        Image(systemName: "bubble.right")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width:20, height: 20)
+                            .font(.system(size: 20))
+                            .padding(4)
+                    })
                 
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     Image(systemName: "paperplane")
