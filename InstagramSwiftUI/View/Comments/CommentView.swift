@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct CommentView: View {
+    @State var commentText = ""
+    
     var body: some View {
         VStack {
+            
             // comment cells
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 24) {
@@ -18,8 +21,14 @@ struct CommentView: View {
                     }
                 }
             }.padding(.top)
+            
             // input view
+            CustomInputView(inputText: $commentText, action: uploadComment)
         }
+    }
+    
+    func uploadComment() {
+        
     }
 }
 
