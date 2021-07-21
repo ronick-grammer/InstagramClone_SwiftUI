@@ -10,9 +10,11 @@ import Firebase
 
 class CommentViewModel: ObservableObject {
     private let post: Post
+    @Published var comments = [Comment]()
     
     init(post: Post) {
         self.post = post
+        fetchComments()
     }
     
     func uploadComment(commentText: String) {
@@ -34,7 +36,19 @@ class CommentViewModel: ObservableObject {
     }
     
     func fetchComments() {
+        guard let postId = post.id else { return }
         
+        let query = COLLECTION_POSTS.document(postId).collection("post-comments")
+            .order(by: "timestamp", descending: true)
+        
+        // 데이터가 추가될 때마다 실시간으로 뷰에 반영 (댓글이 실시간으로 달림)
+        query.addSnapshotListener { snapshot, _ in
+            guard let addedDocs = snapshot?.documentChanges.filter({ $0.type == .added }) else { return }
+            
+            self.comments.append(contentsOf: addedDocs.compactMap({ try? $0.document.data(as: Comment.self) }))
+            
+            print("DEBUG: Successfully fetched comment")
+        }
     }
 }
 
