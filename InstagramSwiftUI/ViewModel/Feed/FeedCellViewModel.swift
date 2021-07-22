@@ -32,6 +32,9 @@ class FeedCellViewModel: ObservableObject {
                         self.post.likes += 1
                         
                         COLLECTION_POSTS.document(postId).updateData(["likes": self.post.likes])
+                        
+                        // 좋아요 누르면 상대에게 알림
+                        NotificationsViewModel.uploadNotification(toUid: self.post.ownerUid, type: .like, post: self.post)
                     }
         }
     }

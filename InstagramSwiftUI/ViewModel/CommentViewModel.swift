@@ -32,6 +32,9 @@ class CommentViewModel: ObservableObject {
                 print("DEBUG: Error uploading comment \(error.localizedDescription)")
                 return
             }
+            
+            // 코멘트 달았으면 상대에게 알림
+            NotificationsViewModel.uploadNotification(toUid: self.post.ownerUid, type: .comment, post: self.post)
         }
     }
     
@@ -43,6 +46,7 @@ class CommentViewModel: ObservableObject {
         
         // 데이터가 추가될 때마다 실시간으로 뷰에 반영 (댓글이 실시간으로 달림)
         query.addSnapshotListener { snapshot, _ in
+            // 추가된 데이터만 필터링
             guard let addedDocs = snapshot?.documentChanges.filter({ $0.type == .added }) else { return }
             
             self.comments.append(contentsOf: addedDocs.compactMap({ try? $0.document.data(as: Comment.self) }))
