@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D402BD2526AAD63300DBD584 /* NotificationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402BD2426AAD63300DBD584 /* NotificationCellViewModel.swift */; };
 		D41633452685FB7200E84EF4 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41633442685FB7200E84EF4 /* SearchBar.swift */; };
 		D416334726860ABE00E84EF4 /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D416334626860ABE00E84EF4 /* PostGridView.swift */; };
 		D42D27BE268742DD005EC37C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D27BD268742DD005EC37C /* UserCell.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D402BD2426AAD63300DBD584 /* NotificationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellViewModel.swift; sourceTree = "<group>"; };
 		D41633442685FB7200E84EF4 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		D416334626860ABE00E84EF4 /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
 		D42D27BD268742DD005EC37C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				D4B1175E26A9590A003A5737 /* NotificationsViewModel.swift */,
+				D402BD2426AAD63300DBD584 /* NotificationCellViewModel.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				D4E87AD5268B541C00425669 /* RestPasswordView.swift in Sources */,
 				D4E87AD1268B53FB00425669 /* LoginView.swift in Sources */,
 				D4B1175D26A95220003A5737 /* Notification.swift in Sources */,
+				D402BD2526AAD63300DBD584 /* NotificationCellViewModel.swift in Sources */,
 				D466E35926A7FD0C0069EB07 /* Comment.swift in Sources */,
 				D42D27C2268764E1005EC37C /* Extensions.swift in Sources */,
 				D4C636D52698431500D38149 /* Constants.swift in Sources */,

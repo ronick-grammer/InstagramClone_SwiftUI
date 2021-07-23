@@ -34,8 +34,6 @@ struct CustomInputView: View {
             }
             .padding(.bottom, 8)
             .padding(.horizontal)
-            
         }
-        
     }
 }

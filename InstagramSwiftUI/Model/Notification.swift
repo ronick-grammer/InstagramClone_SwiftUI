@@ -15,7 +15,9 @@ struct Notification: Identifiable, Decodable {
     let profileImageUrl: String // 상대 유저 프로필 이미지
     let timestamp: Timestamp
     let type: NotificationType
-    let uid: String
+    let uid: String // 상대 uid
+    
+    var isFollowed: Bool? = false
 }
 
 // 각 type에 따른 notification 메시지
