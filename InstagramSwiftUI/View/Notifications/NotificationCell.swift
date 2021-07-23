@@ -6,36 +6,42 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct NotificationCell: View {
-    @State private var showPostImage = true
+    let notification: Notification
+    
+    private var showPostImage: Bool {
+        return notification.type != .follow ? true : false
+    }
+    
     var body: some View {
         HStack {
-             Image("spiderman")
+            KFImage(URL(string: notification.profileImageUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(width: 40, height: 40)
                 .clipShape(Circle())
             
-            Text("spiderman").font(.system(size: 14, weight: .semibold)) +
-                Text(" liked one of your posts.")
+            Text(notification.username).font(.system(size: 14, weight: .semibold)) +
+                Text(notification.type.notificationMessage)
                 .font(.system(size: 15))
                 
             Spacer()
             
-            if showPostImage {
+            if showPostImage { // 누군가가 댓글이나 좋아요를 남겼다면 특정 메시지 알림
                 Image("spiderman")
                     .resizable()
                     .scaledToFill()
                     .frame(width:40, height: 40)
-            } else {
+            } else { // 누군가가 팔로우 했다면 팔로우 버튼 생성
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     Text("Follow")
                         .padding(.horizontal, 20)
                         .padding(.vertical, 8)
                         .background(Color(.systemBlue))
                         .foregroundColor(.white)
-                        .clipShape(Circle())
+                        .clipShape(Capsule())
                         .font(.system(size: 14, weight: .semibold))
                 })
             }
@@ -44,8 +50,10 @@ struct NotificationCell: View {
     }
 }
 
+/*
 struct NotificationCell_Previews: PreviewProvider {
     static var previews: some View {
         NotificationCell()
     }
 }
+*/

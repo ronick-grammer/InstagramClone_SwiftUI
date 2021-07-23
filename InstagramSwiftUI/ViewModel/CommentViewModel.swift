@@ -51,7 +51,7 @@ class CommentViewModel: ObservableObject {
             
             self.comments.append(contentsOf: addedDocs.compactMap({ try? $0.document.data(as: Comment.self) }))
             
-            print("DEBUG: Successfully fetched comment")
+            //print("DEBUG: Successfully fetched comment")
         }
     }
 }

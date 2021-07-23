@@ -22,8 +22,9 @@ class ProfileViewModel: ObservableObject {
         UserService.follow(uid: uid) { _ in
             // 팔로우하면 상대에게 알림
             NotificationsViewModel.uploadNotification(toUid: uid, type: .follow)
+            
             self.user.isFollowed = true
-            //print("Successfully followed \(self.user.username)")
+            print("Successfully followed \(self.user.username)")
         }
     }
     
