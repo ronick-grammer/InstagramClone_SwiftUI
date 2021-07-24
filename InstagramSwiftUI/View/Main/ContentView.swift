@@ -13,11 +13,11 @@ struct ContentView: View {
     
     var body: some View {
         Group { // 로그인 뷰와 MainTabView는 완전히 다른 독립된 뷰이기 때문에 ZStack을 사용하는 것은 좋지 않다.
-            // if not logged in show login
+            // 로그인되지 않은거면 로그인 화면
             if viewModel.userSession == nil {
                 LoginView()
-            } else {// else show main interface
-                if let user = viewModel.currentUser { // 로그인 했으면
+            } else { // 로그인 한거면 메인 화면
+                if let user = viewModel.currentUser {
                     MainTabView(user: user, selectedIndex: $selectedIndex)
                 }
             }
