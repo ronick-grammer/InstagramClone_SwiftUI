@@ -44,7 +44,7 @@ struct NotificationCell: View {
             if showPostImage { // 누군가가 댓글이나 좋아요를 남겼다면 특정 메시지 알림
                 if let post = viewModel.post {
                     NavigationLink(
-                        destination: FeedView(),
+                        destination: FeedCell(viewModel: FeedCellViewModel(post: post)),
                         label: {
                             KFImage(URL(string: post.imageUrl))
                                 .resizable()
