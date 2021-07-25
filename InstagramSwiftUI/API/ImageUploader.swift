@@ -29,7 +29,7 @@ struct ImageUploader {
     // Swift UI Image는 JPEG 가 안되므로 UIImage로 받아야 한다.
     static func uploadImage(image: UIImage, type: UploadType, completion: @escaping(String) -> Void) {
         
-        // jpeg 사진 퀄리티를 조장한다. 사진 퀄리티는 사진 크기와 연관이 있으므로 크게 잡지 않는다.
+        // jpeg 사진 퀄리티를 조정한다. 사진 퀄리티는 사진 크기(메모리)와 연관이 있으므로 크게 잡지 않는다.
         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
         
         // 파이어베이스 스토리지에 업로드할 사진의 url 주소를 지정한다.

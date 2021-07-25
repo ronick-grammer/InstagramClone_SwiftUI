@@ -21,7 +21,7 @@ struct ProfileView: View {
             VStack(spacing: 32) {
                 ProfileHeaderView(viewModel: viewModel)
                 
-                PostGridView()
+                PostGridView(config: PostGridConfiguration.profile(user.id ?? "")) // 특정 유저의 사진들만 게시
             }.padding(.top)
         }
     }

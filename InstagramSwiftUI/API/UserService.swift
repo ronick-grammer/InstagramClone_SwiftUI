@@ -25,8 +25,8 @@ struct UserService {
     static func unfollow(uid: String, completion: ((Error?) -> Void)?) {
         guard let currentUid = AuthViewModel.shared.userSession?.uid else { return }
         // 현재 로그인 유저의 팔로잉 리스트에서 팔로우 했던 유저를 지우고 그 유저의 팔로워 리스트에서 자신도 지운다.
-        COLLECTION_FOLLOWING.document(currentUid).collection("user-following")
-            .document(uid).delete { _ in
+        COLLECTION_FOLLOWING.document(currentUid)
+            .collection("user-following").document(uid).delete { _ in
                 COLLECTION_FOLLOWERS.document(uid).collection("user-followers")
                     .document(currentUid).delete(completion: completion)
             }

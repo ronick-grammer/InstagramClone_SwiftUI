@@ -26,7 +26,7 @@ struct ProfileHeaderView: View {
                 Spacer()
                 
                 HStack(spacing: 16) {
-                    UserStatView(value: 1, title: "Posts")
+                    UserStatView(value: viewModel.posts.count, title: "Posts")
                     UserStatView(value: 2, title: "Followers")
                     UserStatView(value: 3, title: "Following")
                 }.padding(.trailing, 32)
@@ -36,7 +36,7 @@ struct ProfileHeaderView: View {
                 .font(.system(size: 15, weight: .semibold))
                 .padding([.leading, .top])
             
-            Text("Your Friendly Neighborhood")
+            Text(viewModel.user.username)
                 .font(.system(size: 15))
                 .padding(.leading)
                 .padding(.top, 1)
