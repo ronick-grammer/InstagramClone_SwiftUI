@@ -34,8 +34,9 @@ struct NotificationCell: View {
                             .clipShape(Circle())
                         
                         Text(viewModel.notification.username).font(.system(size: 14, weight: .semibold)) +
-                            Text(viewModel.notification.type.notificationMessage)
-                            .font(.system(size: 15))
+                            Text(viewModel.notification.type.notificationMessage).font(.system(size: 15)) +
+                            Text(" \(TimestampString.dateString(viewModel.notification.timestamp))")
+                            .foregroundColor(.gray).font(.system(size: 13))
                 })
             }
             

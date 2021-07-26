@@ -60,6 +60,7 @@
 		D4E87AD1268B53FB00425669 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87AD0268B53FB00425669 /* LoginView.swift */; };
 		D4E87AD3268B540D00425669 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87AD2268B540D00425669 /* RegistrationView.swift */; };
 		D4E87AD5268B541C00425669 /* RestPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87AD4268B541C00425669 /* RestPasswordView.swift */; };
+		D4ECC94826AEC8BD00B2D853 /* TimestampString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ECC94726AEC8BD00B2D853 /* TimestampString.swift */; };
 		D4FC80A0268C9129006EAE99 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FC809F268C9129006EAE99 /* CustomTextField.swift */; };
 		D4FC80A2268C913C006EAE99 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FC80A1268C913C006EAE99 /* CustomSecureField.swift */; };
 /* End PBXBuildFile section */
@@ -114,6 +115,7 @@
 		D4E87AD0268B53FB00425669 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D4E87AD2268B540D00425669 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		D4E87AD4268B541C00425669 /* RestPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPasswordView.swift; sourceTree = "<group>"; };
+		D4ECC94726AEC8BD00B2D853 /* TimestampString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampString.swift; sourceTree = "<group>"; };
 		D4FC809F268C9129006EAE99 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D4FC80A1268C913C006EAE99 /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +198,7 @@
 			children = (
 				D4DA05082695D6CA006B48F1 /* ImageUploader.swift */,
 				D4A9293026A00B63009D2E4F /* UserService.swift */,
+				D4ECC94726AEC8BD00B2D853 /* TimestampString.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				D4DE251726A19C74005C4D9D /* TextArea.swift in Sources */,
 				D49E22D62680C80E006C932D /* ProfileView.swift in Sources */,
 				D4A9293126A00B63009D2E4F /* UserService.swift in Sources */,
+				D4ECC94826AEC8BD00B2D853 /* TimestampString.swift in Sources */,
 				D466E36126A804540069EB07 /* CustomInputView.swift in Sources */,
 				D43BB82E2689DE7B00B76AE0 /* UserStatView.swift in Sources */,
 				D42D27BE268742DD005EC37C /* UserCell.swift in Sources */,

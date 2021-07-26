@@ -31,6 +31,7 @@ class NotificationsViewModel: ObservableObject {
     
     static func uploadNotification(toUid uid: String, type: NotificationType, post: Post? = nil) {
         guard let user = AuthViewModel.shared.currentUser else { return }
+        guard uid != user.id else { return } // 자신의 활동이력은 알림에 넣지 않는다
         
         var data: [String: Any] = ["timestamp": Timestamp(date: Date()),
                                    "username": user.username,

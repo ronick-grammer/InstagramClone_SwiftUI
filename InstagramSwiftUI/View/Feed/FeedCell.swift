@@ -96,7 +96,7 @@ struct FeedCell: View {
                     .font(.system(size: 15))
             }.padding(.horizontal, 8)
             
-            Text("\(viewModel.post.timestamp.dateValue().timeIntervalSince1970)")
+            Text(" \(TimestampString.dateString(viewModel.post.timestamp))")
                 .font(.system(size: 14))
                 .foregroundColor(.gray)
                 .padding(.leading, 8)
