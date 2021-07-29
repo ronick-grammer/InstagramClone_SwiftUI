@@ -29,7 +29,7 @@ struct ProfileHeaderView: View {
                     UserStatView(value: viewModel.user.stats?.postCount ?? 0, title: "Posts")
                     UserStatView(value: viewModel.user.stats?.followerCount ?? 0, title: "Followers")
                     UserStatView(value: viewModel.user.stats?.followingCount ?? 0, title: "Following")
-                }.padding(.trailing, 32)
+                }.padding(.trailing, 10)
             }
             
             Text(viewModel.user.fullname)
