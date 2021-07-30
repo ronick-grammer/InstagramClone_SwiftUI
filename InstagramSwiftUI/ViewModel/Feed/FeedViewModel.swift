@@ -24,6 +24,7 @@ class FeedViewModel: ObservableObject {
             self.posts = documents.compactMap({ try? $0.data(as: Post.self) })
             
             //print(self.posts.count)
+            print("DEBUG: did fetch posts..")
         }
     }
 }

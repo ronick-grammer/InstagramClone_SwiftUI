@@ -56,6 +56,8 @@ class ProfileViewModel: ObservableObject {
                     guard let posts = snapshot?.documents.count else { return }
                     
                     self.user.stats = UserStats(postCount: posts, followerCount: followers, followingCount: following)
+                    
+                    print("damn: \(self.user.stats!)")
                 }
             }
         }

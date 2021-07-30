@@ -24,6 +24,7 @@
 		D466E35F26A7FD490069EB07 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466E35E26A7FD490069EB07 /* CommentViewModel.swift */; };
 		D466E36126A804540069EB07 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466E36026A804540069EB07 /* CustomInputView.swift */; };
 		D468469126836B5C0000A912 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D468469026836B5C0000A912 /* FeedCell.swift */; };
+		D48682A226B40B7E00F0778F /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48682A126B40B7E00F0778F /* LazyView.swift */; };
 		D49E22A92680C31E006C932D /* InstagramSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E22A82680C31E006C932D /* InstagramSwiftUIApp.swift */; };
 		D49E22AD2680C322006C932D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D49E22AC2680C322006C932D /* Assets.xcassets */; };
 		D49E22B02680C322006C932D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D49E22AF2680C322006C932D /* Preview Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		D466E36026A804540069EB07 /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
 		D468468F268357EF0000A912 /* InstagramSwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstagramSwiftUI.entitlements; sourceTree = "<group>"; };
 		D468469026836B5C0000A912 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		D48682A126B40B7E00F0778F /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		D49E22A52680C31E006C932D /* InstagramSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E22A82680C31E006C932D /* InstagramSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramSwiftUIApp.swift; sourceTree = "<group>"; };
 		D49E22AC2680C322006C932D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				D4FC80A1268C913C006EAE99 /* CustomSecureField.swift */,
 				D4C636D42698431500D38149 /* Constants.swift */,
 				D4DE251626A19C74005C4D9D /* TextArea.swift */,
+				D48682A126B40B7E00F0778F /* LazyView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				D49E22A92680C31E006C932D /* InstagramSwiftUIApp.swift in Sources */,
 				D4BEE04526A2FFF9005D8769 /* PostGridViewModel.swift in Sources */,
 				D49E22D82680C818006C932D /* UploadPostView.swift in Sources */,
+				D48682A226B40B7E00F0778F /* LazyView.swift in Sources */,
 				D43BB8322689FDCD00B76AE0 /* ImagePicker.swift in Sources */,
 				D4DE251326A15C76005C4D9D /* UploadViewPostModel.swift in Sources */,
 				D43BB82C2689B94C00B76AE0 /* ProfileHeaderView.swift in Sources */,
