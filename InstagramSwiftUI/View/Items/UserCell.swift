@@ -14,7 +14,7 @@ struct UserCell: View {
     
     var body: some View {
         HStack {
-            
+            // 체크아웃하는데 뭘 커밋하라는거야 대체
             KFImage(URL(string: user.profileImageUrl))
                 .resizable()
                 .scaledToFill()
