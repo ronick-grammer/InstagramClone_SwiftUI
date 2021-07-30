@@ -22,7 +22,7 @@ struct FeedCell: View {
             HStack {
                 if let user = viewModel.post.user {
                     NavigationLink(
-                        destination: ProfileView(user: user)  ,
+                        destination: ProfileView(user: user),
                         label: {
                             KFImage(URL(string: viewModel.post.ownerImageUrl))
                                 .resizable()
@@ -42,7 +42,7 @@ struct FeedCell: View {
             KFImage(URL(string: viewModel.post.imageUrl))
                 .resizable()
                 .scaledToFill()
-                .frame(maxHeight: 300)
+                .frame(minWidth: UIScreen.main.bounds.width, maxHeight: 440)
                 .clipped()
                 
             
@@ -55,7 +55,7 @@ struct FeedCell: View {
                         .resizable()
                         .scaledToFill()
                         .foregroundColor(didLike ? .red : .black)
-                        .frame(width:20, height: 20) 
+                        .frame(width:20, height: 20)
                         .font(.system(size: 20))
                         .padding(4)
                 })
