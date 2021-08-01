@@ -25,7 +25,7 @@ struct NotificationCell: View {
         HStack {
             if let user = viewModel.user {
                 NavigationLink (
-                    destination: ProfileView(user: user),
+                    destination: LazyView(ProfileView(user: user)),
                     label: {
                         KFImage(URL(string: viewModel.notification.profileImageUrl))
                             .resizable()

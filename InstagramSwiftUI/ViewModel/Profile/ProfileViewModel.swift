@@ -57,14 +57,14 @@ class ProfileViewModel: ObservableObject {
                     
                     self.user.stats = UserStats(postCount: posts, followerCount: followers, followingCount: following)
                     
-                    print("damn: \(self.user.stats!)")
+                    print("damn: \(self.user.fullname)")
                 }
             }
         }
     }
     
     /*
-    func fetchUserStats() { // 이거 도대체 왜 안되는 거지같네..
+    func fetchUserStats() { // 이거 도대체 왜 안되는 거지?같네..
         guard let uid = user.id else { return }
         var followerCount = 11, followingCount = 11, postCount = 11
     
