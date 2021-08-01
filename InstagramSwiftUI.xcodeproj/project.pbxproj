@@ -60,7 +60,7 @@
 		D4DE251726A19C74005C4D9D /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DE251626A19C74005C4D9D /* TextArea.swift */; };
 		D4E87AD1268B53FB00425669 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87AD0268B53FB00425669 /* LoginView.swift */; };
 		D4E87AD3268B540D00425669 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87AD2268B540D00425669 /* RegistrationView.swift */; };
-		D4E87AD5268B541C00425669 /* RestPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87AD4268B541C00425669 /* RestPasswordView.swift */; };
+		D4E87AD5268B541C00425669 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87AD4268B541C00425669 /* ResetPasswordView.swift */; };
 		D4ECC94826AEC8BD00B2D853 /* TimestampString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4ECC94726AEC8BD00B2D853 /* TimestampString.swift */; };
 		D4FC80A0268C9129006EAE99 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FC809F268C9129006EAE99 /* CustomTextField.swift */; };
 		D4FC80A2268C913C006EAE99 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FC80A1268C913C006EAE99 /* CustomSecureField.swift */; };
@@ -116,7 +116,7 @@
 		D4DE251626A19C74005C4D9D /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		D4E87AD0268B53FB00425669 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D4E87AD2268B540D00425669 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
-		D4E87AD4268B541C00425669 /* RestPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestPasswordView.swift; sourceTree = "<group>"; };
+		D4E87AD4268B541C00425669 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		D4ECC94726AEC8BD00B2D853 /* TimestampString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampString.swift; sourceTree = "<group>"; };
 		D4FC809F268C9129006EAE99 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D4FC80A1268C913C006EAE99 /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 			children = (
 				D4E87AD0268B53FB00425669 /* LoginView.swift */,
 				D4E87AD2268B540D00425669 /* RegistrationView.swift */,
-				D4E87AD4268B541C00425669 /* RestPasswordView.swift */,
+				D4E87AD4268B541C00425669 /* ResetPasswordView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -490,7 +490,7 @@
 				D4C49A1826933E420099E0B5 /* AuthViewModel.swift in Sources */,
 				D4A9292F26A0038A009D2E4F /* ProfileViewModel.swift in Sources */,
 				D4DAA2542688B1050045E907 /* NotificationCell.swift in Sources */,
-				D4E87AD5268B541C00425669 /* RestPasswordView.swift in Sources */,
+				D4E87AD5268B541C00425669 /* ResetPasswordView.swift in Sources */,
 				D4E87AD1268B53FB00425669 /* LoginView.swift in Sources */,
 				D4B1175D26A95220003A5737 /* Notification.swift in Sources */,
 				D402BD2526AAD63300DBD584 /* NotificationCellViewModel.swift in Sources */,

@@ -46,7 +46,7 @@ struct LoginView: View {
                     HStack {
                         Spacer()
                         
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        NavigationLink(destination: ResetPasswordView(email: $email), label: {
                             Text("Forot Password?")
                                 .font(.system(size: 13, weight: .semibold))
                                 .foregroundColor(.white)

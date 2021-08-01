@@ -15,6 +15,7 @@ class AuthViewModel: ObservableObject {
     // 유저가 생성되면 유저 세션은 nil이 아니게 된다.
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    @Published var didSendResetPasswordLink = false
     
     static let shared = AuthViewModel()
     
@@ -73,8 +74,16 @@ class AuthViewModel: ObservableObject {
         try? Auth.auth().signOut() // 파이어베이스에서 signout
     }
     
-    func resetPassword() {
-        print("ResetPassword")
+    func resetPassword(withEmail email: String) {
+        // 해당 유저의 이메일로 패스워드 변경요청 보내기
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                print("Failed to sent link with error \(error.localizedDescription)")
+                return
+            }
+            
+            self.didSendResetPasswordLink = true
+        }
     }
     
     func fetchUser() {
