@@ -26,7 +26,7 @@ struct ProfileActionButtonView: View {
                             .stroke(Color.gray, lineWidth: 1)
                     )
             }).sheet(isPresented: $showEditProfile) {
-                EditProfileView(user: viewModel.user)
+                EditProfileView(user: $viewModel.user)
             }
         } else {
             HStack {
