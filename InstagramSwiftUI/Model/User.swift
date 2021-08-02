@@ -16,6 +16,7 @@ struct User: Identifiable, Decodable { //Decodable: json 키값과 일치하는 
     
     @DocumentID var id: String? // 파이어베이스의 documentId, 즉, uid
     var bio: String?
+    
     var stats: UserStats?
     var isFollowed: Bool? = false
     var isCurrentUser: Bool { return AuthViewModel.shared.userSession?.uid == id } // 현재 로그인한 유저인지 아닌지 확인

@@ -37,9 +37,14 @@ struct ProfileHeaderView: View {
             
             Text(viewModel.user.username)
                 .font(.system(size: 15))
+                .foregroundColor(.gray)
                 .padding(.leading)
-                .padding(.top, 1)
-            
+                
+            if let bio = viewModel.user.bio {
+                Text(bio)
+                    .font(.system(size: 15))
+                    .padding(.leading)
+            }
         
             HStack {
                 Spacer()
