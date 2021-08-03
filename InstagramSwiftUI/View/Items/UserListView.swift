@@ -22,7 +22,10 @@ struct UserListView: View {
                     NavigationLink (
                         // label을 클릭했을 때 destination view로 이동
                         // 여기서 보내지는 user는 로그인한 유저 혹은 다른 유저이다.
-                        destination: ProfileView(user: user),
+                        
+                        // 클릭했을 때 비로소 ProfileView를 빌드하고 이동한다.
+                        // 즉, 모든 ProfileView를 모두 빌드해 놓지 않음으로써 효율성을 높인다.
+                        destination: LazyView(ProfileView(user: user)),
                         label: {
                             UserCell(user: user)
                                 .padding(.leading)

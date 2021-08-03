@@ -15,14 +15,16 @@ class FeedViewModel: ObservableObject {
     }
     
     func fetchPosts() {
+        let query = COLLECTION_POSTS.order(by: "timestamp", descending: true) // 시간 순으로 포스ㅡ트 보여주기
         
-        COLLECTION_POSTS.getDocuments { snapshot, _ in
+        query.getDocuments { snapshot, _ in
             
             guard let documents = snapshot?.documents else { return }
             
             self.posts = documents.compactMap({ try? $0.data(as: Post.self) })
             
             //print(self.posts.count)
+            print("DEBUG: did fetch posts..")
         }
     }
 }

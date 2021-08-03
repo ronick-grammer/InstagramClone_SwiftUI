@@ -21,16 +21,15 @@ struct ProfileHeaderView: View {
                     .scaledToFill()
                     .frame(width: 80, height: 80)
                     .clipShape(Circle())
-                    .padding(.leading)
-                
+                    
                 Spacer()
                 
-                HStack(spacing: 16) {
-                    UserStatView(value: viewModel.posts.count, title: "Posts")
-                    UserStatView(value: 2, title: "Followers")
-                    UserStatView(value: 3, title: "Following")
-                }.padding(.trailing, 32)
-            }
+                HStack {
+                    UserStatView(value: viewModel.user.stats?.postCount ?? 0, title: "Posts")
+                    UserStatView(value: viewModel.user.stats?.followerCount ?? 0, title: "Followers")
+                    UserStatView(value: viewModel.user.stats?.followingCount ?? 0, title: "Following")
+                }
+            }.padding(.horizontal)
             
             Text(viewModel.user.fullname)
                 .font(.system(size: 15, weight: .semibold))
@@ -38,9 +37,14 @@ struct ProfileHeaderView: View {
             
             Text(viewModel.user.username)
                 .font(.system(size: 15))
+                .foregroundColor(.gray)
                 .padding(.leading)
-                .padding(.top, 1)
-            
+                
+            if let bio = viewModel.user.bio {
+                Text(bio)
+                    .font(.system(size: 15))
+                    .padding(.leading)
+            }
         
             HStack {
                 Spacer()

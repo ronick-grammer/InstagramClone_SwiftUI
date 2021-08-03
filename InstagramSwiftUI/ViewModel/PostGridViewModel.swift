@@ -41,7 +41,8 @@ class PostGridViewModel: ObservableObject {
     func fetchUserPosts(forUid uid: String) {
         COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid).getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
-            self.posts = documents.compactMap({ try? $0.data(as: Post.self) })
+            let posts = documents.compactMap({ try? $0.data(as: Post.self) })
+            self.posts = posts.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() }) // 내림차순 정렬(가장 최근 포스트 먼저)
         }
     }
 }

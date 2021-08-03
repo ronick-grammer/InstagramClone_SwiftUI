@@ -16,4 +16,8 @@ struct Comment: Identifiable, Decodable {
     let commentText: String
     let timestamp: Timestamp
     let uid: String
+    
+    var timestampString: String? { // Decodable 프로토콜을 따르기 위해서 옵셔널
+        return TimestampString.dateString(timestamp)
+    }
 }

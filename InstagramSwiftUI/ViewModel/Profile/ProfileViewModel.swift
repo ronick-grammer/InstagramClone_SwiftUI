@@ -9,11 +9,10 @@ import SwiftUI
 
 class ProfileViewModel: ObservableObject {
     @Published var user: User
-    @Published var posts = [Post]()
     
     init(user: User) {
         self.user = user
-        fetchProfilePosts()
+        fetchUserStats()
         checkIfUserIsFollowed()
     }
     
@@ -44,14 +43,47 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
-    func fetchProfilePosts() {
-        COLLECTION_POSTS.getDocuments { snapshot, _ in
-            guard let documents = snapshot?.documents else { return }
-            let posts = documents.compactMap({ try? $0.data(as: Post.self) })
-            
-            // 로그인 유저의 포스트들만 저장
-            guard let uid = self.user.id else { return }
-            self.posts = posts.filter({ $0.ownerUid.contains(uid) })
+    func fetchUserStats() { // 유저의 포스트, 팔로우, 팔로워 수 업데이트
+        guard let uid = user.id else { return }
+    
+        COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments { snapshot, _ in
+            guard let followers = snapshot?.documents.count else { return }
+
+            COLLECTION_FOLLOWING.document(uid).collection("user-following").getDocuments { snapshot, _ in
+                guard let following = snapshot?.documents.count else { return }
+        
+                COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid).getDocuments { snapshot, _user in
+                    guard let posts = snapshot?.documents.count else { return }
+                    
+                    self.user.stats = UserStats(postCount: posts, followerCount: followers, followingCount: following)
+                    
+                    print("damn: \(self.user.fullname)")
+                }
+            }
         }
     }
+    
+    /*
+    func fetchUserStats() { // 이거 도대체 왜 안되는 거지?같네..
+        guard let uid = user.id else { return }
+        var followerCount = 11, followingCount = 11, postCount = 11
+    
+        COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments { snapshot, _ in
+            guard let followers = snapshot?.documents.count else { return }
+            followerCount = followers
+        }
+        
+        COLLECTION_FOLLOWING.document(uid).collection("user-following").getDocuments { snapshot, _ in
+            guard let following = snapshot?.documents.count else { return }
+            followingCount = following
+        }
+        
+        COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid).getDocuments { snapshot, _user in
+            guard let posts = snapshot?.documents.count else { return }
+            postCount = posts
+            print("DEBUG \(posts) \(postCount)")
+        }
+        self.user.stats = UserStats(postCount: postCount, followerCount: followerCount, followingCount: followingCount)
+    }
+ */
 }
