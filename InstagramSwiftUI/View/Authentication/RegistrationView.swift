@@ -26,11 +26,16 @@ struct RegistrationView: View {
             VStack {
                 ZStack {
                     if let image = image {
+                        Button(action: { imagePickerPresented.toggle() }, label: {
                             image
                             .resizable()
                             .scaledToFill()
                             .frame(width: 140, height: 140)
                             .clipShape(Circle())
+                        }).sheet(isPresented: $imagePickerPresented, onDismiss: loadImage, content: { ImagePicker(image: $selectedImage)
+                        })
+                        .padding()
+                        
                     } else {
                         Button(action: { imagePickerPresented.toggle() }, label: {
                             Image(systemName: "plus.circle")
@@ -40,7 +45,6 @@ struct RegistrationView: View {
                                 .frame(width: 140, height: 140)
                                 .foregroundColor(.white)
                         }).sheet(isPresented: $imagePickerPresented, onDismiss: loadImage, content: { ImagePicker(image: $selectedImage)
-                            
                         })
                         .padding()
                     }
@@ -54,7 +58,7 @@ struct RegistrationView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 32)
                     
-                    CustomTextField(text: $username, placeholder: Text("username"), imgName: "person")
+                    CustomTextField(text: $username, placeholder: Text("Username"), imgName: "person")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
@@ -89,15 +93,14 @@ struct RegistrationView: View {
                 Spacer()
                 
                 //버튼을 누르면 해당 뷰 스크린을 dismiss 한다
-                Button(action: { mode.wrappedValue.dismiss() }, label: {
-                    HStack{
-                        Text("Already have an account?")
-                            .font(.system(size: 14))
-                        
-                        Text("Sign In")
-                            .font(.system(size: 14, weight: .semibold))
-                    }.foregroundColor(.white)
-                }).padding(.bottom, 16)
+                Button(action: {
+                    mode.wrappedValue.dismiss()
+                }, label: {
+                    Text("Already have an account?").font(.system(size: 14))
+                        + Text(" Sign In").font(.system(size: 14, weight: .semibold))
+                })
+                .foregroundColor(.white)
+                .padding(.bottom, 16)
             }
             
         }

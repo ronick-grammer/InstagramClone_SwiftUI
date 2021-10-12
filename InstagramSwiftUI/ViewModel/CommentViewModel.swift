@@ -55,5 +55,3 @@ class CommentViewModel: ObservableObject {
         }
     }
 }
-
-

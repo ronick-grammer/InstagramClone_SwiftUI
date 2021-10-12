@@ -10,12 +10,13 @@ import Firebase
 
 struct Notification: Identifiable, Decodable {
     @DocumentID var id: String?
-    let postId: String? // 팔로우 알림이면 postId는 필요없다
+    let postId: String? // 팔로우 알림일 경우 nil
     let username: String // 상대 유저이름
     let profileImageUrl: String // 상대 유저 프로필 이미지
+    let uid: String // 상대 uid
     let timestamp: Timestamp
     let type: NotificationType
-    let uid: String // 상대 uid
+    
     
     var isFollowed: Bool? = false
 }

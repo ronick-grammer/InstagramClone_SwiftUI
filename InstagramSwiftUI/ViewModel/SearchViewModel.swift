@@ -16,7 +16,7 @@ class SearchViewModel: ObservableObject {
     
     func fetchUsers() {
         // Document에 있는 모든 유저 정보를 가져온다
-        COLLECTION_USERS.getDocuments {snapshot, _ in
+        COLLECTION_USERS.getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else { return }
             
             documents.forEach { snapshot in

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import FirebaseDatabase
 import Firebase
 
 // ObservableObject 프로토콜을 따르는 클래스나 구조체내에 있는 @Published 프로퍼티의 값에 변화가 생길때 마다
@@ -19,7 +19,7 @@ class AuthViewModel: ObservableObject {
     
     static let shared = AuthViewModel()
     
-    init() {
+    private init() {
         userSession = Auth.auth().currentUser
         fetchUser()
     }

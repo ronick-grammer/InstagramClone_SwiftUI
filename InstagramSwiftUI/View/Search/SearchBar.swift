@@ -18,12 +18,11 @@ struct SearchBar: View {
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
                 .overlay(
-                    HStack {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.gray)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 8)
-                    }
+                    
                 )
                 .onTapGesture{ // 텍스트 박스 안을 클릭하면
                     isEditing = true;
