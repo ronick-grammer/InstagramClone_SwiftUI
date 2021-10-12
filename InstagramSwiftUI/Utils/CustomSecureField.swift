@@ -28,6 +28,7 @@ struct CustomSecureField: View {
                 
                 SecureField("", text: $text) //Swift UI에서 TextFiled의 placeholder는 색이 변경할수가 없다.
                     .padding(.leading, 11)
+                    .foregroundColor(.white)
             }
         }
     }

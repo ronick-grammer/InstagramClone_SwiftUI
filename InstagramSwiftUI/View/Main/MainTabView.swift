@@ -56,7 +56,7 @@ struct MainTabView: View {
                         selectedIndex = 4
                     }
                     .tabItem {
-                        Image(systemName: "person").accentColor(.red)
+                        Image(systemName: "person")
                     }
                     .tag(4)
             }

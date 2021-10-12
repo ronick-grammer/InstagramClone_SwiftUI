@@ -11,7 +11,7 @@ import Firebase
 struct Post: Identifiable, Decodable{
     @DocumentID var id: String?
     let ownerUid: String
-    let onwerUsername: String // 아.. 타이핑 잘못했다..
+    let onwerUsername: String // ownerUsername 을 onwerUsername 으로 잘못 타이핑
     let caption: String
     var likes: Int
     let imageUrl: String

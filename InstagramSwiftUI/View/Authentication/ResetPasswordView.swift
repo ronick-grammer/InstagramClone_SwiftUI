@@ -11,7 +11,6 @@ struct ResetPasswordView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     @Environment(\.presentationMode) var mode
     @Binding private var email: String
-
     init(email: Binding<String>) {
         self._email = email // ??
     }
@@ -26,17 +25,13 @@ struct ResetPasswordView: View {
                     .scaledToFit()
                     .frame(width: 220, height: 100)
                 
-                
-                VStack(spacing: 20) {
-                    // email field
-                    CustomTextField(text: $email, placeholder: Text("Email"), imgName: "envelope")
-                        .padding()
-                        .background(Color(.init(white: 1, alpha: 0.15)))
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 32)
-                    
-                }
+                // email field
+                CustomTextField(text: $email, placeholder: Text("Email"), imgName: "envelope")
+                    .padding()
+                    .background(Color(.init(white: 1, alpha: 0.15)))
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 32)
          
                 Button(action: {
                     viewModel.resetPassword(withEmail: email)
@@ -54,14 +49,15 @@ struct ResetPasswordView: View {
                 Spacer()
                 
                 Button(action: { mode.wrappedValue.dismiss() }, label: {
-                    HStack{
+                   
                         Text("Already have an account?")
-                            .font(.system(size: 14))
-                        
-                        Text("Sign In")
+                            .font(.system(size: 14)) +
+                        Text(" Sign In")
                             .font(.system(size: 14, weight: .semibold))
-                    }.foregroundColor(.white)
-                }).padding(.bottom, 16)
+                   
+                })
+                .foregroundColor(.white)
+                .padding(.bottom, 16)
                 
             }
             .padding(.top, -44)
@@ -72,10 +68,10 @@ struct ResetPasswordView: View {
     }
 }
 
-/*
-struct ResetPasswordView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResetPasswordView()
-    }
-}
-*/
+//
+//struct ResetPasswordView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ResetPasswordView()
+//    }
+//}
+//

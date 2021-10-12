@@ -26,11 +26,11 @@ struct CustomTextField: View {
                     .scaledToFit()
                     .frame(width: 20, height: 20)
                     .foregroundColor(.white)
-                
-                TextField("", text: $text) //Swift UI에서 TextFiled의 placeholder는 색이 변경할수가 없다.
+
+                TextField("", text: $text) //Swift UI에서 TextFiled의 placeholder는 색을 변경할수가 없다.
                     .padding(.leading, 11)
-                    
-                    
+                    .foregroundColor(.white)
+
             }
         }
     }
