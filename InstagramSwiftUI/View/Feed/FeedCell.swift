@@ -33,6 +33,7 @@ struct FeedCell: View {
                             
                             Text(viewModel.post.onwerUsername)
                                 .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.black)
 
                     })
                 }
@@ -42,7 +43,8 @@ struct FeedCell: View {
             KFImage(URL(string: viewModel.post.imageUrl))
                 .resizable()
                 .scaledToFill()
-                .frame(minWidth: UIScreen.main.bounds.width, maxHeight: 440)
+                .frame(width: UIScreen.main.bounds.width)
+                .frame(maxHeight: 300)
                 .clipped()
                 
             
@@ -96,7 +98,7 @@ struct FeedCell: View {
                     .font(.system(size: 15))
             }.padding(.horizontal, 8)
             
-            Text(" \(TimestampString.dateString(viewModel.post.timestamp))")
+            Text("\(TimestampString.dateString(viewModel.post.timestamp))")
                 .font(.system(size: 14))
                 .foregroundColor(.gray)
                 .padding(.leading, 8)
