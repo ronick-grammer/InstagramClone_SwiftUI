@@ -10,8 +10,8 @@
 <img src="https://img.shields.io/badge/SwiftUI-000000?style=flat&logoColor=blue&logo=Swift" alt="SwiftUI" maxWidth="100%">
 <img src="https://img.shields.io/badge/Swift-000000?style=flat&logo=Swift" alt="swift" maxWidth="100%">
 <img src="https://img.shields.io/badge/-Firebase-000000?style=flat&logo=Firebase" alt="firebase" maxWidth="100%">
-<img src="https://img.shields.io/badge/-GitHub-000000?style=flat-square&logo=github" alt="github" maxWidth="100%">
-<img src="https://img.shields.io/badge/-Xcode-000000?style=flat-square&logo=Xcode" alt="Xcode" maxWidth="100%">
+<img src="https://img.shields.io/badge/-GitHub-000000?style=flat&logo=github" alt="github" maxWidth="100%">
+<img src="https://img.shields.io/badge/-Xcode-000000?style=flat&logo=Xcode" alt="Xcode" maxWidth="100%">
 </p>
 
 
